@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+    <title>Customer Delete</title>
+</head>
+
+<body background='./pics/customer.jpg'>
+
+    <style>
+        h1 {text-align: center}
+        h2 {text-align: center}
+    </style>
+
+    <h1 style='font: bold 60px Arial;'>Customer Delete</h1><br><br><br>
+        
+        <script>
+            // delete from customer table 
+            function Delete() {
+                var customerDelete = new XMLHttpRequest();
+                var staff_delete_url = '/customerDelete';
+                var param = 'ID=' + document.getElementById('ID').value;
+                customerDelete.onreadystatechange = function() {
+                        if(customerDelete.readyState == 4 && customerDelete.status == 200) {
+                            window.alert("succeed!");
+                        }  
+                    };
+                customerDelete.open('POST', staff_delete_url, true);
+                customerDelete.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                customerDelete.send(param);
+            }
+        </script>
+        
+        <h2>
+            <label style='font: 30px Arial;' for='delete'> ID: </label>
+            <input id='ID' type='text' name='ID'><br><br>
+
+            <button onclick='Delete()'>Delete</button>
+        </h2>
+
+        <br><br><br><br><br>
+
+        <a style='font: bold 30px Arial;'  href='http://localhost:8080/customer.html'>back</a>
+
+</body>

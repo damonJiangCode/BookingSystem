@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+    <title>Staff Delete</title>
+</head>
+
+<body background='./pics/staff.jpg'>
+
+    <style>
+        h1 {text-align: center}
+        h2 {text-align: center}
+    </style>
+
+    <h1 style='font: bold 60px Arial;'>Staff Delete</h1><br><br><br>
+        
+        <script>
+            // delete from staff table 
+            function Delete() {
+                var staffDelete = new XMLHttpRequest();
+                var staff_delete_url = '/staffDelete';
+                var param = 'ID=' + document.getElementById('ID').value;
+                staffDelete.onreadystatechange = function() {
+                        if(staffDelete.readyState == 4 && staffDelete.status == 200) {
+                            window.alert("succeed!");
+                        }  
+                    };
+                staffDelete.open('POST', staff_delete_url, true);
+                staffDelete.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                staffDelete.send(param);
+            }
+        </script>
+
+        <h2>
+            <label style='font: 30px Arial;' for='delete' > ID: </label>
+            <input id='ID' type='text' name='ID'><br><br>
+
+            <button onclick='Delete()'>Delete</button>
+        </h2>
+
+        <br><br><br><br><br>
+
+        <a style='font: bold 30px Arial;'  href='http://localhost:8080/staff.html'>back</a>
+
+</body>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+    <title>Customer Show</title>
+</head>
+
+<body background='./pics/customer.jpg'>
+
+    <style>
+        h1 {text-align: center}
+        h2 {text-align: center}
+    </style>
+
+    <h1 style='font: bold 60px Arial;'>Customer Show</h1><br><br><br>
+        
+        <script>
+            // show all customers 
+            function reports() {
+                var customer = new XMLHttpRequest();
+                var show_customer_url = '/customerShow';
+                customer.onreadystatechange = function() {
+                        if(customer.readyState == 4 && customer.status == 200) {
+                            document.getElementById('info').innerHTML = customer.responseText;
+                        }  
+                    };
+                customer.open('POST', show_customer_url, true);
+                customer.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                customer.send();
+            }
+
+            // show all customers and their reports
+            function showCustomer() {
+
+            }
+        </script>
+        
+        <h2>
+            <button onclick='showCustomer()'>Show All Customers</button>
+            <button onclick='reports()'>Show All Customers and Their Reports</button>
+        </h2>
+
+        <textarea id='info' rows='40' cols='167'>  </textarea><br><br>
+
+        <br><br><br><br><br>
+
+        <a style='font: bold 30px Arial;'  href='http://localhost:8080/customer.html'>back</a>
+
+</body>

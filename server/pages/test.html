@@ -1,0 +1,51 @@
+<script>
+// read updated info from staff table
+function infoShow(){
+    var choice;
+    var radio = document.getElementsByName('sort');
+    var radioLength = radio.length;
+    for (var i = 0; i < radioLength; i++) {
+        if (radio[i].checked) {
+            choice = radio[i].id;
+        }
+    }
+    var param = 'choice=' + choice;
+    
+    var staffInfoShow = new XMLHttpRequest();
+    var staff_info_show_url = '/staffInfoShow';
+    staffInfoShow.open('POST',select_url, true);
+    staffInfoShow.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    staffInfoShow.onreadystatechange = function() {
+        if(http2.readyState == 4 && http2.status == 200) {
+            document.getElementById('info').innerHTML = http2.responseText;
+        } 
+    }
+    staffInfoShow.send(param);
+}
+</script>
+
+
+
+
+
+<textarea id='info' rows='40' cols='40'>  </textarea><br><br>
+            <div>
+                <form>
+                    <input type="radio" id="ID_ascend" name="sort" > ID (Asc.)
+                    <input type="radio" id="ID_descend" name="sort" > ID(Desc.)
+
+                    <input type="radio" id="LastName_ascend" name="sort" > Last name (Asc.)
+                    <input type="radio" id="LastName_descend" name="sort" > Last name (Desc.)
+
+                    <input type="radio" id="FirstName_ascend" name="sort" > First name (Asc.)
+                    <input type="radio" id="FirstName_descend" name="sort" > First name(Desc.)
+
+                    <input type="radio" id="Age_ascend" name="sort" > Age (Asc.)
+                    <input type="radio" id="Age_descend" name="sort" > Age(Desc.)
+
+                    <input type="radio" id="Occupation_ascend" name="sort" > Occupation (Asc.)
+                    <input type="radio" id="Occupation_descend" name="sort" > Occupation (Desc.)
+                </form>
+            </div>
+
+            <button onclick="infoShow()">show</button> 

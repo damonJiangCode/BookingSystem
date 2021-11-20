@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<head>
+    <title>Customer Update</title>
+</head>
+
+<body background='./pics/customer.jpg'>
+    <style>h1 {text-align: center}</style>
+    <h1 style='font: bold 60px Arial;'>Customer Update</h1><br><br><br>
+        
+        <script>
+            // update from customer table 
+            function Update() {
+                var choice;
+                var radio = document.getElementsByName('sort');
+                var radioLength = radio.length;
+                for (var i = 0; i < radioLength; i++) {
+                    if (radio[i].checked) {
+                        choice = radio[i].id;
+                    }
+                }           
+                var customerUpdate = new XMLHttpRequest();
+                var customer_Update_url = '/customerUpdate';
+                var params = 'ID=' + document.getElementById('ID').value +
+                            '&choice=' + choice +
+                            '&changeValue=' + document.getElementById('changeInfo').value;
+                customerUpdate.onreadystatechange = function() {
+                    if(customerUpdate.readyState == 4 && customerUpdate.status == 200) {
+                        window.alert("succeed!");
+                    }  
+                };
+                customerUpdate.open('POST', customer_Update_url, true);
+                customerUpdate.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                customerUpdate.send(params);
+            }
+        </script>
+        
+        <p1 style='font: 30px Arial;' >Please type the original ID of the customer:</p1>
+        <input id='ID' type='text' name='ID'><br><br><br>
+
+        <p2 style='font: 30px Arial;'>Please choose which information of the customer you would like to update.</p2>
+        <div>
+            <form style='font: 30px Arial;'>
+                <input type="radio" id="changeID" name="sort" > ID 
+
+                <input type="radio" id="changeLastName" name="sort" > Last Name
+
+                <input type="radio" id="changeFirstName" name="sort" > First Name
+
+                <input type="radio" id="changeGender" name="sort" > Gender
+
+                <input type="radio" id="changeAge" name="sort" > Age 
+
+            </form>
+
+            <p3 style='font: 30px Arial;' >Please type the new information you would like to update:</p3>
+            
+            <input id='changeInfo' type='text' name='changeInfo'><br><br>
+        </div>
+
+        <button onclick='Update()'>Update</button>
+
+        <br><br><br><br><br>
+
+        <a style='font: bold 30px Arial;'  href='http://localhost:8080/customer.html'>back</a>
+
+</body>

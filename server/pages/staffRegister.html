@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title> Staff Register</title>
+    </head>
+
+    <body background='./pics/staff.jpg'>
+        <style>
+            h1 {text-align: center}
+            h2 {text-align: center}
+        </style>
+
+        <h1 style='font: bold 60px Arial;'>Staff Register</h1><br><br><br>
+        
+            <script>
+                // insert into staff table 
+                function registrate() {
+                    var staffRegistrate = new XMLHttpRequest();
+                    var staff_registration_url = '/staffRegister';
+                    var params = 'LastName=' + document.getElementById('LastName').value +
+                                '&FirstName=' + document.getElementById('FirstName').value +
+                                '&Gender=' + document.getElementById('Gender').value +
+                                '&Age=' + document.getElementById('Age').value +
+                                '&Occupation=' + document.getElementById('Occupation').value +
+                                '&ID=' + document.getElementById('ID').value;
+                    staffRegistrate.onreadystatechange = function() {
+                        if(staffRegistrate.readyState == 4 && staffRegistrate.status == 200) {
+                            window.alert("succeed!");
+                        }  
+                    };
+                    staffRegistrate.open('POST', staff_registration_url, true);
+                    staffRegistrate.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                    staffRegistrate.send(params);
+                }
+            </script>
+
+            <h2>
+                <p1 style='font: 40px Arial;'>Required Information: </p1><br><br>
+                <label style='font: 30px Arial;' for='ID'> ID: </label>
+                <input id='ID' type='text' name='ID'><br><br>
+
+                <label style='font: 30px Arial;' for='LastName'> Last Name: </label>
+                <input id='LastName' type='text' name='LastName'><br><br>
+
+                <label style='font: 30px Arial;' for='FirstName'> First Name: </label>
+                <input id='FirstName' type='text' name='FirstName'><br><br>
+    
+                <label style='font: 30px Arial;' for='Gender'> Gender: </label>
+                <input id='Gender' type='text' name='Gender'><br><br>
+
+                <label style='font: 30px Arial;' for='Age'> Age: </label>
+                <input id='Age' type='text' name='Age'><br><br>
+
+                <label style='font: 30px Arial;' for='Occupation'> Occupation: </label>
+                <input id='Occupation' type='text' name='Occupation'><br><br>
+
+                <button onclick="registrate()">Register</button> 
+            </h2>
+
+            <br><br><br><br><br>
+
+            <a style='font: bold 30px Arial;'  href='http://localhost:8080/staff.html'>back</a>
+          
+    </body>
+
+</html>

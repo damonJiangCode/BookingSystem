@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title> Staff </title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body background='./pics/staff.jpg'>
+
+        <style>
+            h1 {text-align: center}
+            h2 {text-align: center}
+            h3 {text-align: center}
+        </style>
+
+        <div id="hold">
+
+            <h1 style='font: bold 40px Arial;'>
+                <br><br><br>
+                <span v-bind:title="register">
+                    <a href='http://localhost:8080/staffRegister.html'>Register Staff</a>
+                </span>
+            </h1>
+
+            <h2 style='font: bold 40px Arial;'>
+                <br><br>
+                <span v-bind:title="change">
+                    <a href='http://localhost:8080/staffChange.html'>Change Staff</a>
+                </span>
+            </h2>
+
+            <h3 style='font: bold 40px Arial;'>
+                <br><br>
+                <span v-bind:title="Delete">
+                    <a href='http://localhost:8080/staffDelete.html'>Delete Staff</a>
+                </span>    
+            </h3>
+            
+            <br><br><br><br>
+            <span v-bind:title="back">
+                <a style='font: bold 30px Arial;' href='http://localhost:8080/hotel.html'>back</a>
+            </span>
+        </div>
+
+        <script type='text/javascript'>
+            var app = new Vue({ 
+                el: '#hold',
+                data: {
+                    register: 'If you are a new staff, please click here to register!',
+                    change: "If you would like to change any stuff's information, please click here to change!",
+                    Delete: "If you would like to delete any stuff's information, please click here to delete!",
+                    back: 'Back to Hotel webpage!'
+                }
+            });
+        </script>
+
+    </body>
+       
+</html>
