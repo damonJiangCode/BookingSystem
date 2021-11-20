@@ -38,13 +38,8 @@ app.post('/staffRegister', (req, res) => {
     var Age = req.body.Age;
     var Occupation = req.body.Occupation;
 
-    var DATE = new Date();
-    var time = DATE.toLocaleTimeString();
-    var date = DATE.toLocaleDateString();
-    var timestamp = time + ' ' + date;
-
     // insert into staff table
-    var sql = `INSERT INTO staff (ID, LastName, FirstName, Gender, Age, Occupation, TimeStamp) VALUES ('${ID}', '${LastName}', '${FirstName}', '${Gender}', '${Age}', '${Occupation}', '${timestamp}')`;
+    var sql = `INSERT INTO staff (ID, LastName, FirstName, Gender, Age, Occupation) VALUES ('${ID}', '${LastName}', '${FirstName}', '${Gender}', '${Age}', '${Occupation}')`;
     con.query(sql, function (err, result) {
         if (err) throw err;
         console.log("Insertion complete!\n");
@@ -101,15 +96,8 @@ app.post('/customerRegister', (req, res) => {
     var Gender = req.body.Gender;
     var Age = req.body.Age;
 
-    var DATE = new Date();
-    var time = DATE.toLocaleTimeString();
-    console.log(time);
-    var date = DATE.toLocaleDateString();
-    console.log(date);
-    var timestamp = time + ' ' + date;
-
     // insert into customer table
-    var sql = `INSERT INTO customer (ID, LastName, FirstName, Gender, Age, TimeStamp) VALUES ('${ID}', '${LastName}', '${FirstName}', '${Gender}', '${Age}', '${timestamp}')`;
+    var sql = `INSERT INTO customer (ID, LastName, FirstName, Gender, Age) VALUES ('${ID}', '${LastName}', '${FirstName}', '${Gender}', '${Age}')`;
     con.query(sql, function (err, result) {
         if (err) throw err;
         console.log("Insertion complete!\n");
@@ -170,7 +158,6 @@ app.post('/customerShow', (req, res) => {
                         "\nFirstname: " + row.FirstName + 
                         "\nGender: " + row.Gender + 
                         "\nAge: " + row.Age +
-                        "\nTimeStamp:" + row.TimeStamp +
                         "\n\n";
         });
         res.send(response);     

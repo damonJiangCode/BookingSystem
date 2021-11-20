@@ -18,9 +18,9 @@ USE project;
 
 SHOW tables;
 
-CREATE TABLE staff (ID int NOT NULL, LastName VARCHAR(255), FirstName VARCHAR(255), Gender VARCHAR(255), Age int, Occupation VARCHAR(255), TimeStamp VARCHAR(255), PRIMARY KEY (id));
+CREATE TABLE staff (ID int NOT NULL, LastName VARCHAR(255), FirstName VARCHAR(255), Gender VARCHAR(255), Age int, Occupation VARCHAR(255), PRIMARY KEY (id));
 
-CREATE TABLE customer (ID int NOT NULL, LastName VARCHAR(255), FirstName VARCHAR(255), Gender VARCHAR(255), Age int, SummaryOfConsultation VARCHAR(255), TimeStamp VARCHAR(255), PRIMARY KEY (id));
+CREATE TABLE customer (ID int NOT NULL, LastName VARCHAR(255), FirstName VARCHAR(255), Gender VARCHAR(255), Age int, SummaryOfConsultation VARCHAR(255), PRIMARY KEY (id));
 
 SHOW tables;
 
