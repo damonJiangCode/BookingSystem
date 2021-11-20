@@ -119,7 +119,8 @@ app.post('/customerUpdate', (req, res) => {
     if (choice == 'changeFirstName') { changeType='FirstName'; var sql = `UPDATE customer SET ${changeType}='${changeValue}' WHERE ID=${ID}`;}
     if (choice == 'changeGender') { changeType='Gender'; var sql = `UPDATE customer SET ${changeType}='${changeValue}' WHERE ID=${ID}`;}
     if (choice == 'changeAge') {changeType='Age'; var sql = `UPDATE customer SET ${changeType}=${changeValue} WHERE ID=${ID}`;}
-    
+    if (choice == 'changeSummaryOfConsultation') { changeType='SummaryOfConsultation'; var sql = `UPDATE customer SET ${changeType}='${changeValue}' WHERE ID=${ID}`;}
+
     con.query(sql, function (err, result) {
         if (err) throw err;
         console.log("Change complete!\n");
@@ -158,6 +159,25 @@ app.post('/customerShow', (req, res) => {
                         "\nFirstname: " + row.FirstName + 
                         "\nGender: " + row.Gender + 
                         "\nAge: " + row.Age +
+                        "\nSummary Of Consultation: " + row.SummaryOfConsultation +
+                        "\n\n";
+        });
+        res.send(response);     
+    });
+});
+
+// show  customers
+app.post('/customerShowOnly', (req, res) => {
+
+    var sql = `SELECT * FROM customer;`;
+    var response = '';
+
+    con.query(sql, function (err, result){
+        if (err) throw err;
+        Object.keys(result).forEach(function(key) {
+            var row = result[key];
+            response +=  "\nLastName: " + row.LastName + 
+                        "\nFirstname: " + row.FirstName + 
                         "\n\n";
         });
         res.send(response);     

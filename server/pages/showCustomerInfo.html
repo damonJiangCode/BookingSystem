@@ -29,7 +29,16 @@
 
             // show all customers and their reports
             function showCustomer() {
-
+                var customerOnly = new XMLHttpRequest();
+                var show_customer_only_url = '/customerShowOnly';
+                customerOnly.onreadystatechange = function() {
+                        if(customerOnly.readyState == 4 && customerOnly.status == 200) {
+                            document.getElementById('info').innerHTML = customerOnly.responseText;
+                        }  
+                    };
+                customerOnly.open('POST', show_customer_only_url, true);
+                customerOnly.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                customerOnly.send();
             }
         </script>
         
