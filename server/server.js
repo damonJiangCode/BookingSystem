@@ -103,7 +103,9 @@ app.post('/customerRegister', (req, res) => {
 
     var DATE = new Date();
     var time = DATE.toLocaleTimeString();
+    console.log(time);
     var date = DATE.toLocaleDateString();
+    console.log(date);
     var timestamp = time + ' ' + date;
 
     // insert into customer table
