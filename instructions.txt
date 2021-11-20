@@ -1,0 +1,47 @@
+Terminal 1:
+
+docker-compose build
+
+docker-compose up
+
+
+
+Terminal 2:
+
+docker exec -it db /bin/bash
+
+mysql -u root -padmin
+
+SHOW databases;
+
+USE project;
+
+SHOW tables;
+
+CREATE TABLE staff (ID int NOT NULL, LastName VARCHAR(255), FirstName VARCHAR(255), Gender VARCHAR(255), Age int, Occupation VARCHAR(255), TimeStamp VARCHAR(255), PRIMARY KEY (id));
+
+CREATE TABLE customer (ID int NOT NULL, LastName VARCHAR(255), FirstName VARCHAR(255), Gender VARCHAR(255), Age int, SummaryOfConsultation VARCHAR(255), TimeStamp VARCHAR(255), PRIMARY KEY (id));
+
+SHOW tables;
+
+DESCRIBE staff;
+
+DESCRIBE customer;
+
+
+
+Webpage:
+
+Register Sstaff
+
+SELECT * FROM staff;
+
+Change Staff
+
+SELECT * FROM staff;
+
+Delete Staff
+
+SELECT * FROM staff;
+
+ 
