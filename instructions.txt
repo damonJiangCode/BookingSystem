@@ -12,11 +12,11 @@ docker exec -it db /bin/bash
 
 mysql -u root -padmin
 
-SHOW databases;
+// SHOW databases;
 
 USE project;
 
-SHOW tables;
+// SHOW tables;
 
 CREATE TABLE staff (ID int NOT NULL, LastName VARCHAR(255), FirstName VARCHAR(255), Gender VARCHAR(255), Age int, Occupation VARCHAR(255), PRIMARY KEY (id));
 
@@ -54,4 +54,4 @@ TEST:
 
 3. to test customer register:
     1. type npx loadtest -n 1 -c 1 --data '{"ID":123, "LastName":"LastName", "FirstName":"FirstName", "Gender":"gender", "Age": 123}' -T 'application/x-www-form-urlencoded' -m POST http://localhost:8080/customerRegister.html/customerRegister to see the result
-    2. type npx loadtest -n 10 -c 10 --data '{"ID":123, "LastName":"LastName", "FirstName":"FirstName", "Gender":"gender", "Age": 123}' -T 'application/x-www-form-urlencoded' -m POST http://localhost:8080/customerRegister.html/customerRegister to see the result
+    2. type npx loadtest -n 100 -c 100 --data '{"ID":123, "LastName":"LastName", "FirstName":"FirstName", "Gender":"gender", "Age": 123}' -T 'application/x-www-form-urlencoded' -m POST http://localhost:8080/customerRegister.html/customerRegister to see the result
