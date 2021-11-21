@@ -184,48 +184,6 @@ app.post('/customerShowOnly', (req, res) => {
     });
 });
 
-
-
-/*
-// read staffs' info and print 
-app.post('/staffInfoShow', (req, res) => {
-
-    // check mode
-    var choice = req.body.choice;
-    var sql;
-    if (choice=='ID_ascend'){sql = "SELECT * FROM staff ORDER BY ID ASC"};
-    if (choice=='ID_descend'){sql = "SELECT * FROM staff ORDER BY ID DESC"};
-    if (choice=='LastName_ascend'){sql = "SELECT * FROM staff ORDER BY LastName ASC"};
-    if (choice=='LastName_descend'){sql = "SELECT * FROM staff ORDER BY LastName DESC"};
-    if (choice=='FirstName_ascend'){sql = "SELECT * FROM staff ORDER BY FirstName ASC"};
-    if (choice=='FirstName_descend'){sql = "SELECT * FROM staff ORDER BY FirstName DESC"};
-    if (choice=='Age_ascend'){sql = "SELECT * FROM staff ORDER BY Age ASC"};
-    if (choice=='Age_descend'){sql = "SELECT * FROM staff ORDER BY Age DESC"};
-    if (choice=='Occupation_ascend'){sql = "SELECT * FROM staff ORDER BY Occupation ASC"};
-    if (choice=='Occupation_descend'){sql = "SELECT * FROM staff ORDER BY Occupation DESC"};
-    if (choice=='TimeStamp_ascend'){sql = "SELECT * FROM staff ORDER BY TimeStamp ASC"};
-    if (choice=='TimeaStamp_descend'){sql = "SELECT * FROM staff ORDER BY TimeStamp DESC"};
-    var response = '';
-    
-    con.query(sql, function (err, result){
-            if (err) throw err;
-            
-            Object.keys(result).forEach(function(key) {
-                var row = result[key];
-                response += "ID: " + row.ID + 
-                            "\nLastName: " + row.LastName + 
-                            "\nFirstname: "+row.FirstName + 
-                            "\nGender: "+row.Gender + 
-                            "\nAge: "+row.Age +
-                            "\nOccupation: "+row.Occupation +
-                            "\nTimeStamp: "+row.TimeStamp +
-                            "\n\n";
-            });
-            res.send(response); 
-    });  
-});
-*/
-
 app.use("/", express.static(path.join(__dirname, "pages")));
 
 app.listen(PORT,HOST);
