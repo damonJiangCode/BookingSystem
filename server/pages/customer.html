@@ -3,7 +3,6 @@
 
     <head>
         <title> Customer </title>
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     </head>
 
     <body background='./pics/customer.jpg'>
@@ -19,50 +18,27 @@
 
             <h1 style='font: bold 40px Arial;'>
                 <br><br><br>
-                <span v-bind:title="register">
                     <a href='http://localhost:8080/customerRegister.html'>Register Customer</a>
-                </span>
             </h1>
 
             <h2 style='font: bold 40px Arial;'>
                 <br><br>
-                <span v-bind:title="update">
                     <a href='http://localhost:8080/customerUpdate.html'>Update Customer</a>
-                </span>
             </h2>
 
             <h3 style='font: bold 40px Arial;'>
                 <br><br>
-                <span v-bind:title="Delete">
                     <a href='http://localhost:8080/customerDelete.html'>Delete Customer</a>
-                </span>
             </h3>
 
             <h4 style='font: bold 40px Arial;'>
                 <br><br>
-                <span v-bind:title="Show">
                     <a href='http://localhost:8080/showCustomerInfo.html'>Show Customer</a>
-                </span>
             </h4>
 
             <br><br><br><br>
-            <span v-bind:title="back">
                 <a style='font: bold 30px Arial;' href='http://localhost:8080/hotel.html'>back</a>
-            </span>
         </div>
-
-        <script type='text/javascript'>
-            var app = new Vue({ 
-                el: '#customer',
-                data: {
-                    register: 'If you would like to register for a new customer, please click here to register!',
-                    update: "If you would like to update the information about one customer, please click here to update!",
-                    Delete: "If you would like to delete any customers information, please click here to delete!",
-                    Show: "If you would like to see all the customers or all the reports of the customers, please click here to see!",
-                    back: 'Back to Hotel webpage!'
-                }
-            });
-        </script>
         
     </body>
        

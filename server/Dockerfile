@@ -5,5 +5,5 @@ EXPOSE 8080
 WORKDIR /app
 
 RUN npm init -y
-RUN npm install express body-parser mysql nodemon loadtest vue 
+RUN npm install express body-parser mysql nodemon loadtest
 

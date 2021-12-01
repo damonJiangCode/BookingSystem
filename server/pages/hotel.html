@@ -3,7 +3,6 @@
 
     <head>
         <title> Hotel Management System</title><br><br><br>
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     </head>
 
     <body background='./pics/hotel.jpg' >
@@ -19,28 +18,14 @@
             <h1 style='font:  bold 60px Arial;'>Hotel Management System</h1><br><br><br>
 
             <h2 style='font: 35px Arial;' >
-                <span v-bind:title='staff'>
                     <a href="http://localhost:8080/staff.html" >STAFF</a><br><br><br>
-                </span>
             </h2>
 
             <h3 style='font: 35px Arial;'>
-                <span v-bind:title='customer'>
                     <a href="http://localhost:8080/customer.html">CUSTOMER</a>
-                </span>
             </h3>
 
         </div>
-
-        <script type='text/javascript'>
-            var app = new Vue({ 
-                el: '#hotel',
-                data: {
-                    staff: 'If you would like to register information, change information, or delete information of a staff, please click here!',
-                    customer: 'If you would like to register information, update information, or delete information of a customer, please click here!'
-                }
-            });
-        </script>
 
     </body>
 

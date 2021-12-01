@@ -3,28 +3,32 @@
 // load packages
 const path = require("path")
 const express = require('express');
-const app = express();
-
 const bodyParser = require("body-parser");
-app.use(bodyParser.urlencoded({ extended: true }));
-
 const mysql = require('mysql');
 
+const app = express();
+
+app.use(bodyParser.urlencoded({ extended: true }));
+
+
 let con = mysql.createConnection({
-  host: 'mysql',
-  port: '3306',
-  user: 'root',
-  database: 'project',
-  password: 'admin'
+    host: 'mysql',
+    port: '3306',
+    user: 'root',
+    database: 'project',
+    password: 'admin'
 });
+
 
 const PORT = 8080;
 const HOST = '0.0.0.0';
 
 // Connect to database
-con.connect(function(err) {
-    if (err) throw err;
-    console.log('Connected\n');
+app.get('/', (err, data) => {
+    con.connect(function(err) {
+        if (err) throw err;
+        else console.log('Connected\n');
+    });
 });
 
 ///////////////////////////////////////////////////////////////////// staff
@@ -185,6 +189,5 @@ app.post('/customerShowOnly', (req, res) => {
 });
 
 app.use("/", express.static(path.join(__dirname, "pages")));
-
-app.listen(PORT,HOST);
+app.listen(PORT, HOST);
 console.log("up and running!");
