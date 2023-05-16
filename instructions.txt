@@ -5,7 +5,6 @@ docker-compose build
 docker-compose up
 
 
-
 Terminal 2:
 
 docker exec -it db /bin/bash
